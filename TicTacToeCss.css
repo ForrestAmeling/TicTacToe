@@ -1,0 +1,94 @@
+$darkBlue: #00005b;
+$babyBlue: #2fccd8;
+$liteBlue: #347dcc;
+$grey: #c2c2d3;
+$darkGrey: #31313f;
+$coral: #cc3457;
+$orange: #cc5d34;
+$gradientColor: linear-gradient(135deg, $grey, $babyBlue);
+
+
+@mixin gradient {
+  background: $gradientColor;
+}
+
+@mixin shadow {
+  box-shadow: 0 16px 28px 0 rgba(0, 0, 0, .8), 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+
+@mixin shadowHide {
+  box-shadow: 0px 0px;
+}
+
+h1 {
+  padding: 20px 0 0 0;
+  font-weight: bold;
+}
+
+body {
+  @include gradient;
+  background-size: cover;
+  color: $liteBlue;
+  margin: 0 0 3% 0;
+  padding: auto;
+  text-align: center;
+}
+
+.board {
+  align-items: center;
+  margin: auto;
+  width: 400px;
+  padding: 0px 0px;
+}
+
+.square {
+  font-size: 60px;
+  font-weight: bold;
+  @include shadow;
+  width: 100px;
+  height: 100px;
+  background-color: $darkBlue;
+  color: $grey;
+  margin: 20px 20px;
+  transition: all 0.05s ease;
+  cursor: pointer;
+
+  &:hover {
+    background: $liteBlue ;
+  }
+
+  &:active {
+    background: $coral;
+    width: 90px;
+    height: 90px;
+    @include shadowHide;
+    margin: 25px 25px;
+  }
+}
+
+.button {
+  width: 100px;
+  height: 45px;
+  text-align: center;
+  background-color: $orange;
+  font-size: 20px;
+  color: $grey;
+  padding-top: 7px;
+  margin: 10px 20px 83px 20px;
+  transition: all 0.03s ease;
+  @include shadow;
+  cursor: pointer;
+
+  &:hover {
+    background: $coral;
+  }
+
+  &:active {
+    background: $orange;
+    width: 95px;
+    height: 40px;
+    @include shadowHide;
+    padding-top: 5px;
+    margin: 12.5px 22.5px;
+  }
+}
